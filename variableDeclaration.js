@@ -1,11 +1,15 @@
 
-var beginningCard = document.querySelector("card.mx-auto.mt-5.mb-5.beginningCar");
+var beginningCard = document.getElementById("beginning-card");
 
-var startButton = document.querySelector("btn.btn-primary.mt-1.start");
+var startButton = document.getElementById("start-button");
 
-var questionNumber = "";
+var quizCard = document.getElementById("quiz-card");
 
-var question1content = "Question 2 Content";
+var questionNumber = document.getElementById("question-number");
+
+var questionContent = document.getElementById("question-content");
+
+var question1content = "Question 1 Content";
 var question1answers = ["correct", "wrong 1", "wrong 2", "wrong 3"];
 
 var question2content = "Question 2 Content";
@@ -17,14 +21,20 @@ var question3answers = ["correct", "wrong 1", "wrong 2", "wrong 3"];
 var question4content = "Question 4 Content";
 var question4answers = ["correct", "wrong 1", "wrong 2", "wrong 3"];
 
-var option1 = document.querySelector("btn.btn-primary.mt-1.option1");
+var question5content = "Question 5 Content";
+var question5answers = ["correct", "wrong 1", "wrong 2", "wrong 3"];
 
-var option2 = document.querySelector("btn.btn-primary.option2");
+var option1 = document.getElementById("option1");
 
-var option3 = document.querySelector("btn.btn-primary.option3");
+var option2 = document.getElementById("option2");
 
-var option4 = document.querySelector("btn.btn-primary.option4");
+var option3 = document.getElementById("option3");
 
-var score = "";
+var option4 = document.getElementById("option4");
 
+var scoreTotal = document.getElementById("score-total");
+
+var score = 0;
+
+var endingCard = document.getElementById("ending-card");
 

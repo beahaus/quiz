@@ -16,36 +16,56 @@
 <body>
 
    <!-- Beginning Card -->
-    <div class="card mx-auto mt-5 mb-5 beginningCard" style="width: 50%;">
+    <div class="card mx-auto mt-5 mb-5" id="beginning-card" style="width: 50%;">
         <h6 class="card-header">Javascript Quiz</h6>
         <div class="card-body">
-          <h5 class="card-title">This quiz has a timer of 3:00 minutes and there are 5 questions. Each wrong answer will subtract time, and each correct answer will add points to your total score. <br><br> Good Luck!
+          <h5 class="card-title">This quiz has a timer of 3:00 minutes <br>
+            There are 5 questions total. <br> 
+            Each wrong answer will subtract 15 seconds. <br> 
+            Each correct answer will add points to your total score. 
+            <br>
+            <br>
+            <p style="text-align: center;">Good Luck!</p>
           </h5>
-          <p class="btn btn-primary mt-1 start">Begin Quiz</p>
+          <p class="btn btn-primary btn-lg btn-block btn-dark mt-1" id="start-button">Start Quiz</p>
         </div>
       </div>
     <!-- Beginning Card -->
 
    <!-- Quiz Card -->
-    <div class="card mx-auto mt-5 mb-5" style="width: 50%;">
-        <h6 class="card-header"></h6>
+    <div class="card mx-auto mt-5 mb-5" id="quiz-card" style="width: 50%; display:none;">
+        <h6 class="card-header" id="question-number"></h6>
         <div class="card-body">
-          <h5 class="card-title"></h5>
-          <p class="btn btn-primary mt-1 option1"></p>
+          <h5 class="card-title" id="question-content"></h5>
+          <ul style="padding-left: 0;">
+          <p class="btn btn-primary btn-block btn-dark mt-1" id="option1"></p>
           <br>
-          <p class="btn btn-primary option2"></p>
+          <p class="btn btn-primary btn-block btn-dark" id="option2"></p>
           <br>
-          <p class="btn btn-primary option3"></p>
+          <p class="btn btn-primary btn-block btn-dark" id="option3"></p>
           <br>
-          <p class="btn btn-primary option4"></p>
+          <p class="btn btn-primary btn-block btn-dark" id="option4"></p>
+          </ul>
         </div>
     </div>
    <!-- Quiz Card -->
 
-    <script type="text/javascript" src="questions.js">
-    </script>
-    <script type="text/javascript" src="functions.js">
-    </script>
+   <div class="card mx-auto mt-5 mb-5" id="ending-card" style="width: 50%; display:none;">
+    <h6 class="card-header"></h6>
+    <div class="card-body">
+      <h5 class="card-title">
+        Congratulations on finishing the quiz!
+      </h5>
+     
+      <br>
+      <p id="score-total">Your Final Score is </p>
+      <p>Type in your Initials:<input type="text"></p>
+      <p class="btn btn-primary btn-lg btn-block btn-dark mt-1" id="submit-button">Save Final Score</p>
+    </div>
+  </div>
+
+    <script type="text/javascript" src="variableDeclaration.js"></script>
+    <script type="text/javascript" src="functions.js"></script>
 
 </body>
 </html>
