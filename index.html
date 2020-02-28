@@ -16,12 +16,12 @@
 <body>
 
    <!-- Beginning Card -->
-    <div class="card mx-auto mt-5 mb-5" id="beginning-card" style="width: 50%;">
+    <div class="card mx-auto mt-5 mb-5" id="beginning-card" style="width: 65%;">
         <h6 class="card-header">Javascript Quiz</h6>
         <div class="card-body">
           <h5 class="card-title">This quiz has a timer of 3:00 minutes <br>
             There are 5 questions total. <br> 
-            Each wrong answer will subtract 15 seconds. <br> 
+            Each wrong answer will subtract 30 seconds. <br> 
             Each correct answer will add points to your total score. 
             <br>
             <br>
@@ -33,7 +33,7 @@
     <!-- Beginning Card -->
 
    <!-- Quiz Card -->
-    <div class="card mx-auto mt-5 mb-5" id="quiz-card" style="width: 50%; display:none;">
+    <div class="card mx-auto mt-5 mb-5" id="quiz-card" style="width: 65%; display:none;">
         <h6 class="card-header" id="question-number"></h6>
         <div class="card-body">
           <h5 class="card-title" id="question-content"></h5>
@@ -50,8 +50,9 @@
     </div>
    <!-- Quiz Card -->
 
-   <div class="card mx-auto mt-5 mb-5" id="ending-card" style="width: 50%; display:none;">
-    <h6 class="card-header"></h6>
+   <!-- Ending Card -->
+   <div class="card mx-auto mt-5 mb-5" id="ending-card" style="width: 65%; display:none;">
+    <h6 class="card-header">Javascript Quiz</h6>
     <div class="card-body">
       <h5 class="card-title">
         Congratulations on finishing the quiz!
@@ -60,9 +61,25 @@
       <br>
       <p id="score-total">Your Final Score is </p>
       <p>Type in your Initials:<input type="text"></p>
-      <p class="btn btn-primary btn-lg btn-block btn-dark mt-1" id="submit-button">Save Final Score</p>
+      <p class="btn btn-primary btn-lg btn-block btn-dark mt-1" id="record-button">Record Final Score</p>
     </div>
   </div>
+  <!-- Ending Card -->
+
+  <!-- Score Card -->
+  <div class="card mx-auto mt-5 mb-5" id="score-card" style="width: 65%; display:none;">
+    <h6 class="card-header">Javascript Quiz</h6>
+    <div class="card-body">
+      <h5 class="card-title" style="text-align: center;">
+          High Scores
+      </h5>
+      <ul class="high-scores-list" style="text-align: center;">
+      </ul>
+      <br>
+      <p class="btn btn-primary btn-lg btn-block btn-dark mt-1" id="restart-button">Restart Quiz</p>
+    </div>
+  </div>
+  <!-- Score Card -->
 
     <script type="text/javascript" src="variableDeclaration.js"></script>
     <script type="text/javascript" src="functions.js"></script>
