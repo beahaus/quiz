@@ -1,33 +1,43 @@
 
 var timer;
-
-
+var score = 0;
 // start button event listener
-startButton.addEventListener("click", quizTimer);
+startButton.addEventListener("click", startQuiz);
 // start button event listener
+// event listener that includes interval and startquiz function
 
-// timer function for entirety of quiz
-function quizTimer() {
-    timer = setInterval(startQuiz() >= 180000);
-        
     
+
 
 // hide beginning card, show question 1 content and start timer
 function startQuiz () {
+    timer = setInterval(startQuiz, 180000);
     beginningCard.style.display = "none";
     quizCard.style.display = "block";
+    timerDiv.style.display = "block";
     questionNumber.textContent = "Question 1 of 5";
     questionContent.textContent = question1content;
     option1.textContent = question1answers[1];
     option2.textContent = question1answers[3];
     option3.textContent = question1answers[0];
     option4.textContent = question1answers[2];
-    if (option3.addEventListener("click", answeredQ1)) {
 
+    option3.onclick = function () {
+        score += 20;
+        answeredQ1();
     }
-    else if (option1.addEventListener("click", answeredQ1) || option2.addEventListener("click", answeredQ1) || option4.addEventListener("click", answeredQ1)) {
-
-    } 
+    option1.onclick = function () {
+        timer = -30000;
+        answeredQ1();
+    }
+    option2.onclick = function () {
+        timer = -30000;
+        answeredQ1(); 
+    }
+    option4.onclick = function () {
+        timer = -30000;
+        answeredQ1();
+    }
 }
 // hide beginning card, show question 1 content and start timer
 
@@ -39,12 +49,24 @@ function answeredQ1 () {
     option2.textContent = question2answers[3];
     option3.textContent = question2answers[2];
     option4.textContent = question2answers[1];
-    if (option1.addEventListener("click", answeredQ2)){
 
+    option1.onclick = function () {
+        score += 20;
+        answeredQ2();
     }
-    else if (option2.addEventListener("click", answeredQ2) || option3.addEventListener("click", answeredQ2) || option4.addEventListener("click", answeredQ2)) {
-
+    option2.onclick = function () {
+        timer = -30000;
+        answeredQ1();
     }
+    option3.onclick = function () {
+        timer = -30000;
+        answeredQ1(); 
+    }
+    option4.onclick = function () {
+        timer = -30000;
+        answeredQ1();
+    }
+    
 }
 // show question 2 content after question 1 is answered
 
@@ -56,11 +78,22 @@ function answeredQ2 () {
     option2.textContent = question3answers[1];
     option3.textContent = question3answers[0];
     option4.textContent = question3answers[2];
-    if (option3.addEventListener("click", answeredQ3)) {
 
+    option3.onclick = function () {
+        score += 20;
+        answeredQ3();
     }
-    else if (option1.addEventListener("click", answeredQ3) || option2.addEventListener("click", answeredQ3) || option4.addEventListener("click", answeredQ3)) {
-
+    option1.onclick = function () {
+        timer = -30000;
+        answeredQ3();
+    }
+    option2.onclick = function () {
+        timer = -30000;
+        answeredQ3(); 
+    }
+    option4.onclick = function () {
+        timer = -30000;
+        answeredQ3();
     }
 }
 // show question 3 content after question 2 is answered
@@ -73,11 +106,22 @@ function answeredQ3 () {
     option2.textContent = question4answers[2];
     option3.textContent = question4answers[0];
     option4.textContent = question4answers[3];
-    if (option3.addEventListener("click", answeredQ4)) {
-
+    
+    option3.onclick = function () {
+        score += 20;
+        answeredQ4();
     }
-    else if (option1.addEventListener("click", answeredQ4) || option2.addEventListener("click", answeredQ4) || option4.addEventListener("click", answeredQ4)) {
-
+    option1.onclick = function () {
+        timer = -30000;
+        answeredQ4();
+    }
+    option2.onclick = function () {
+        timer = -30000;
+        answeredQ4(); 
+    }
+    option4.onclick = function () {
+        timer = -30000;
+        answeredQ4();
     }
 }
 // show question 4 content after question 3 is answered
@@ -90,15 +134,26 @@ function answeredQ4 () {
     option2.textContent = question5answers[2];
     option3.textContent = question5answers[1];
     option4.textContent = question5answers[0];
-    if (option4.addEventListener("click", answeredQ5)) {
-        score++;
+   
+    option4.onclick = function () {
+        score += 20;
+        answeredQ5();
     }
-    else if (option1.addEventListener("click", answeredQ5) || option2.addEventListener("click", answeredQ5) || option3.addEventListener("click", answeredQ5)) {
-
-    } 
+    option1.onclick = function () {
+        timer = -30000;
+        answeredQ5();
+    }
+    option2.onclick = function () {
+        timer = -30000;
+        answeredQ5(); 
+    }
+    option3.onclick = function () {
+        timer = -30000;
+        answeredQ5();
+    }
 }
 // show question 5 content after question 4 is answered
-};
+
 // show card for recording intials and show score after question 5 is answered
 function answeredQ5 () {
     quizCard.style.display = "none";
@@ -108,15 +163,14 @@ function answeredQ5 () {
 // show card for recording initals and show score after question 5 is answered
 
 // show recorded high scores
-recordButton.addEventListener("click", function() {
+recordButton.onclick = function () {
     endingCard.style.display = "none";
     scoreCard.style.display = "block";
-})
+}
 // show recorded high scores
 
 // show beginning card to restart quiz
-restartButton.addEventListener("click", function (){
+restartButton.onclick = function (){
     scoreCard.style.display = "none";
     beginningCard.style.display = "block";
-})
-// show beginning card to restart quiz
+}

@@ -3,10 +3,14 @@ var beginningCard = document.getElementById("beginning-card");
 
 var startButton = document.getElementById("start-button");
 
+var timer = document.getElementsByClassName("timer");
+var timerDiv = document.getElementsByClassName("timer-div");
+
 var quizCard = document.getElementById("quiz-card");
 var questionNumber = document.getElementById("question-number");
 var questionContent = document.getElementById("question-content");
 
+// create object with below content
 var question1content = "Question 1 Content";
 var question1answers = ["correct", "wrong 1", "wrong 2", "wrong 3"];
 
@@ -28,7 +32,6 @@ var option3 = document.getElementById("option3");
 var option4 = document.getElementById("option4");
 
 var scoreTotal = document.getElementById("score-total");
-var score = 0;
 
 var endingCard = document.getElementById("ending-card");
 var scoreCard = document.getElementById("score-card");
