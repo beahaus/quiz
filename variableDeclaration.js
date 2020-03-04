@@ -5,6 +5,8 @@ var startButton = document.getElementById("start-button");
 
 var timer = document.getElementsByClassName("timer");
 var timerText = document.getElementById("timer-text");
+var minutesDisplay = document.querySelector("#minutes");
+var secondsDisplay = document.querySelector("#seconds");
 
 var quizCard = document.getElementById("quiz-card");
 var questionNumber = document.getElementById("question-number");

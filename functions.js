@@ -1,20 +1,68 @@
 
 var timer;
 var score = 0;
-// start button event listener
-startButton.addEventListener("click", startQuiz);
-// start button event listener
-// event listener that includes interval and startquiz function
+var totalSeconds = 180;
+var secondsElapsed = 0;
+var minutes;
+var seconds;
 
-    
+//this launches the app by calling setTime() and renderTime()
 
+
+function getFormattedMinutes() { 
+  var secondsLeft = totalSeconds - secondsElapsed;
+  var minutesLeft = Math.floor(secondsLeft / 60);
+  var formattedMinutes;{
+    formattedMinutes = "0" + minutesLeft;
+  } 
+  return formattedMinutes;
+}
+function getFormattedSeconds() {
+  var secondsLeft = (totalSeconds - secondsElapsed) % 60;
+  var formattedSeconds;
+  if (secondsLeft < 10) {
+    formattedSeconds = "0" + secondsLeft;
+  } else {
+    formattedSeconds = secondsLeft;
+  }
+  return formattedSeconds;
+}
+
+function renderTime() {
+    timerText.textContent = "Time Remaining: " + getFormattedMinutes() + " : " + getFormattedSeconds();
+}
+     
+function stopTimer() {
+    secondsElapsed = 0;
+    renderTime(); 
+    answeredQ5();
+  }
+
+function startTimer() {
+  secondsElapsed = 0;
+  if (totalSeconds > 0) {    
+      timer = setInterval(function() {
+        secondsElapsed++;
+        renderTime();
+      }, 1000);
+      if (secondsElapsed >= totalSeconds) {
+        stopTimer();
+        alert("Time is up!");
+        answeredQ5();
+      }
+}
+  renderTime();
+}
+
+// start button event listener
+startButton.addEventListener("click", startQuiz)
+// start button event listener
 
 // hide beginning card, show question 1 content and start timer
 function startQuiz () {
-    timer = setInterval(startQuiz, 50000);
+    startTimer();
     beginningCard.style.display = "none";
     quizCard.style.display = "block";
-    timerText.textContent = "Timer Remaining: ";
     questionNumber.textContent = "Question 1 of 5";
     questionContent.textContent = question1content;
     option1.textContent = question1answers[1];
@@ -27,15 +75,15 @@ function startQuiz () {
         answeredQ1();
     }
     option1.onclick = function () {
-        timer = -30000;
+        secondsElapsed= secondsElapsed+30;
         answeredQ1();
     }
     option2.onclick = function () {
-        timer = -30000;
+        secondsElapsed= secondsElapsed+30;
         answeredQ1(); 
     }
     option4.onclick = function () {
-        timer = -30000;
+        secondsElapsed= secondsElapsed+30;
         answeredQ1();
     }
 }
@@ -43,6 +91,7 @@ function startQuiz () {
 
 // show question 2 content after question 1 is answered
 function answeredQ1 () {
+    renderTime();
     questionNumber.textContent = "Question 2 of 5";
     questionContent.textContent = question2content;
     option1.textContent = question2answers[0];
@@ -55,15 +104,15 @@ function answeredQ1 () {
         answeredQ2();
     }
     option2.onclick = function () {
-        timer = -30000;
+        secondsElapsed= secondsElapsed+30;
         answeredQ2();
     }
     option3.onclick = function () {
-        timer = -30000;
+        secondsElapsed= secondsElapsed+30;
         answeredQ2(); 
     }
     option4.onclick = function () {
-        timer = -30000;
+        secondsElapsed= secondsElapsed+30;
         answeredQ2();
     }
     
@@ -84,15 +133,15 @@ function answeredQ2 () {
         answeredQ3();
     }
     option1.onclick = function () {
-        timer = -30000;
+        secondsElapsed= secondsElapsed+30;
         answeredQ3();
     }
     option2.onclick = function () {
-        timer = -30000;
+        secondsElapsed= secondsElapsed+30;
         answeredQ3(); 
     }
     option4.onclick = function () {
-        timer = -30000;
+        secondsElapsed= secondsElapsed+30;
         answeredQ3();
     }
 }
@@ -112,15 +161,15 @@ function answeredQ3 () {
         answeredQ4();
     }
     option1.onclick = function () {
-        timer = -30000;
+        secondsElapsed= secondsElapsed+30;
         answeredQ4();
     }
     option2.onclick = function () {
-        timer = -30000;
+        secondsElapsed= secondsElapsed+30;
         answeredQ4(); 
     }
     option4.onclick = function () {
-        timer = -30000;
+        secondsElapsed= secondsElapsed+30;
         answeredQ4();
     }
 }
@@ -156,7 +205,7 @@ function answeredQ5 () {
     quizCard.style.display = "none";
     endingCard.style.display = "block";
     scoreTotal.textContent = "Your final score is " + score + " out of 100";
-
+    stopTimer();
 }
 // show card for recording initals and show score after question 5 is answered
 
