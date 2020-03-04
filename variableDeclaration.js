@@ -35,9 +35,6 @@ var option4 = document.getElementById("option4");
 
 var scoreTotal = document.getElementById("score-total");
 var initials = document.querySelector("initials");
-//var initialsAndScore = {
-        //initials: initialsInput.value.trim(),
-        //score: score.value.trim()};
 
 var endingCard = document.getElementById("ending-card");
 var scoreCard = document.getElementById("score-card");

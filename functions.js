@@ -3,12 +3,10 @@ var timer;
 var score = 0;
 var totalSeconds = 180;
 var secondsElapsed = 0;
-var minutes;
-var seconds;
+var initialsInput = [];
+var finalScores = [];
 
-//this launches the app by calling setTime() and renderTime()
-
-
+// timer functions
 function getFormattedMinutes() { 
   var secondsLeft = totalSeconds - secondsElapsed;
   var minutesLeft = Math.floor(secondsLeft / 60);
@@ -53,6 +51,7 @@ function startTimer() {
 }
   renderTime();
 }
+// timer functions 
 
 // start button event listener
 startButton.addEventListener("click", startQuiz)
@@ -200,29 +199,44 @@ function answeredQ4 () {
 }
 // show question 5 content after question 4 is answered
 
+// store initials and score in localStorage and stringify
+function storeInitials() {
+    localStorage.setItem("initials", JSON.stringify(initialsInput));
+}
+function storeScore() {
+    localStorage.setItem("score", JSON.stringify(finalScores));
+}
+// store initials and score in localStorage and stringify
+
+// get stored initials and score from localStorage and parse into object
+
+// get stored initials and score from localStorage and parse into object
+
 // show card for recording intials and show score after question 5 is answered
 function answeredQ5 () {
     quizCard.style.display = "none";
     endingCard.style.display = "block";
     scoreTotal.textContent = "Your final score is " + score + " out of 100";
     stopTimer();
+    
+    // call functions to store initials and score
+    storeInitials();
+    storeScore();
 }
 // show card for recording initals and show score after question 5 is answered
 
-    // localStorage.setItem("initials", JSON.stringify(initials));
-    // localStorage.setItem("score", JSON.stringify(score));
-
 // show recorded high scores
-recordButton.onclick = function (event) {
+recordButton.onclick = function (event) { 
     endingCard.style.display = "none";
     scoreCard.style.display = "block";
-    }
+    // render initials and scores in ul
 
+    }
 // show recorded high scores
 
 // show beginning card to restart quiz
 restartButton.onclick = function (){
     scoreCard.style.display = "none";
     beginningCard.style.display = "block";
-    // highScoresList.append("initials " + score);
 }
+// show beginning card to restart quiz
