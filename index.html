@@ -31,16 +31,11 @@
         </div>
       </div>
     <!-- Beginning Card -->
-    
-    <!-- Timer Div -->
-      <div class="timer-div" style="margin: auto; width: 65%; text-align: right; position: absolute; top: 0; margin-top: 10px;">
-        <p class="timer-text" style="display: none;"> Timer: </p>
-      </div>
-    <!-- Timer Div -->
 
    <!-- Quiz Card -->
     <div class="card mx-auto mt-5 mb-5" id="quiz-card" style="width: 65%; display:none;">
         <h6 class="card-header" id="question-number"></h6>
+        <h6 class="card-header" id="timer-text"></h6>
         <div class="card-body">
           <h5 class="card-title" id="question-content"></h5>
           <ul style="padding-left: 0;">
@@ -66,14 +61,14 @@
      
       <br>
       <p id="score-total">Your Final Score is </p>
-      <p>Type in your Initials:<input type="text"></p>
+      <p>Type in your Initials:<input class="initials" type="text"></p>
       <p class="btn btn-primary btn-lg btn-block btn-dark mt-1" id="record-button">Record Final Score</p>
     </div>
   </div>
   <!-- Ending Card -->
 
   <!-- Score Card -->
-  <div class="card mx-auto mt-5 mb-5" id="score-card" style="width: 65%; display:none;">
+  <div class="card mx-auto mt-5 mb-5" id="score-card" style="display: none; width: 65%;">
     <h6 class="card-header">Javascript Quiz</h6>
     <div class="card-body">
       <h5 class="card-title" style="text-align: center;">

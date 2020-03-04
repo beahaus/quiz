@@ -4,7 +4,7 @@ var beginningCard = document.getElementById("beginning-card");
 var startButton = document.getElementById("start-button");
 
 var timer = document.getElementsByClassName("timer");
-var timerDiv = document.getElementsByClassName("timer-div");
+var timerText = document.getElementById("timer-text");
 
 var quizCard = document.getElementById("quiz-card");
 var questionNumber = document.getElementById("question-number");
@@ -32,9 +32,14 @@ var option3 = document.getElementById("option3");
 var option4 = document.getElementById("option4");
 
 var scoreTotal = document.getElementById("score-total");
+var initials = document.querySelector("initials");
+//var initialsAndScore = {
+        //initials: initialsInput.value.trim(),
+        //score: score.value.trim()};
 
 var endingCard = document.getElementById("ending-card");
 var scoreCard = document.getElementById("score-card");
 var highScoresList = document.getElementsByClassName("high-scores-list");
 var recordButton = document.getElementById("record-button");
 var restartButton = document.getElementById("restart-button");
+
