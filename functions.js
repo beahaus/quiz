@@ -61,9 +61,9 @@ var timer;
 var score = 0;
 var totalSeconds = 180;
 var secondsElapsed = 0;
-var intials = document.querySelector(".initials");
-// var initialsInput = []; 
-// initialsInput[0] = localStorage.setItem("initials", JSON.stringify(initials));
+
+var initialsInput = [];
+var quizScores = [];
 // variable declarations
 
 // timer functions
@@ -122,6 +122,7 @@ function startQuiz () {
     startTimer();
     beginningCard.style.display = "none";
     quizCard.style.display = "block";
+    score = 0;
     questionNumber.textContent = "Question 1 of 5";
     questionContent.textContent = questionContents.question1.content;
     option1.textContent = questionContents.question1.wrongAnswers[1];
@@ -260,12 +261,7 @@ function answeredQ4 () {
 // show question 5 content after question 4 is answered
 
 // store initials and score in localStorage and stringify
-function storeInitials() {
-    localStorage.setItem("initials", initials);
-}
-function storeScore() {
-    localStorage.setItem("score", score);
-}
+
 // store initials and score in localStorage and stringify
 
 // get stored initials and score from localStorage
@@ -284,16 +280,28 @@ function answeredQ5 () {
 
 // show recorded high scores
 recordButton.onclick = function () { 
+
+    var initials = document.querySelector("#initials").value;
+    var pushInitials = initialsInput.push(initials);
+    var pushScore = quizScores.push(finalScore);
     endingCard.style.display = "none";
-    scoreCard.style.display = "block";
-    // render initials and scores in ul
-    //localStorage.setItem("initials", initials);
-    //localStorage.setItem("score", score);
+    scoreCard.style.display = "block"; 
+    function storeInitials() {
+        localStorage.setItem("Initials Input", JSON.stringify(pushInitials));
+    }
+    function storeScore() {
+        localStorage.setItem("Quiz Scores", JSON.stringify(pushScore));
+    }
+    storeInitials();
+    storeScore();     
     }
 // show recorded high scores
 
 // show beginning card to restart quiz
 restartButton.onclick = function (){
+    for (i=0; i < initialsInput; i ++) {
+        
+    }
     scoreCard.style.display = "none";
     beginningCard.style.display = "block";
 }
