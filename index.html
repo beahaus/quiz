@@ -26,8 +26,8 @@
             <br>
             <br>
             <p style="text-align: center;">Good Luck!</p>
-          </h5>
-          <p class="btn btn-primary btn-lg btn-block btn-dark mt-1" id="start-button">Start Quiz</p>
+          </h5>    
+            <p class="btn btn-primary btn-lg btn-block btn-dark mt-1" id="start-button">Start Quiz</p>  
         </div>
       </div>
     <!-- Beginning Card -->
@@ -60,11 +60,10 @@
       <h5 class="card-title">
         Congratulations on finishing the quiz!
       </h5>
-     
       <br>
       <p id="score-total">Your Final Score is </p>
       <p>Type in your Initials: <input id="initials" type="text"></p>
-      <p class="btn btn-primary btn-lg btn-block btn-dark mt-1" id="record-button">Record Final Score</p>
+        <p class="btn btn-primary btn-lg btn-block btn-dark mt-1" id="record-button">Record Final Score</p>      
     </div>
   </div>
   <!-- Ending Card -->
@@ -72,19 +71,20 @@
   <!-- Score Card -->
   <div class="card mx-auto mt-5 mb-5" id="score-card" style="display: none; width: 65%;">
     <h6 class="card-header">Javascript Quiz</h6>
-    <div class="card-body">
-      <h5 class="card-title" style="text-align: center;">
-          High Scores
-      </h5>
-      <table id="high-scores-table">
-      </table>
-      <br>
-      <p class="btn btn-primary btn-lg btn-block btn-dark mt-1" id="restart-button">Restart Quiz</p>
-    </div>
+      <div class="card-body">
+        <h5 class="card-title" style="text-align: center;">All Scores</h5>
+        <div class="" style="align-content: center;">
+          <ul class="list-group" id="high-initials-list"style="min-height: 100px; width: 50%; float: left;"> 
+          </ul>
+          <ul class="list-group" id="high-scores-list" style="min-height: 100px; width: 50%; float:right; list-style-type: none;">        
+          </ul>
+        </div>
+        <br>
+        <p class="btn btn-primary btn-lg btn-dark mt-1" style="width: 100%;" id="restart-button">Restart Quiz</p>
+      </div>
   </div>
   <!-- Score Card -->
 
-    <!-- <script type="text/javascript" src="variableDeclaration.js"></script> -->
     <script type="text/javascript" src="functions.js"></script>
 
 </body>

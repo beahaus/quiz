@@ -1,6 +1,6 @@
 // variable declarations
 var beginningCard = document.getElementById("beginning-card");
-
+var restartButton = document.getElementById("restart-button");
 var startButton = document.getElementById("start-button");
 
 var timer = document.getElementsByClassName("timer");
@@ -9,8 +9,12 @@ var minutesDisplay = document.querySelector("#minutes");
 var secondsDisplay = document.querySelector("#seconds");
 
 var quizCard = document.getElementById("quiz-card");
+
 var questionNumber = document.getElementById("question-number");
 var questionContent = document.getElementById("question-content");
+
+var endingCard = document.getElementById("ending-card");
+var scoreCard = document.getElementById("score-card");
 
 var option1 = document.getElementById("option1");
 var option2 = document.getElementById("option2");
@@ -50,12 +54,7 @@ var questionContents = {
 
 var scoreTotal = document.getElementById("score-total");
 
-var endingCard = document.getElementById("ending-card");
-var scoreCard = document.getElementById("score-card");
-var highScoresList = document.getElementsByClassName("high-scores-list");
 var recordButton = document.getElementById("record-button");
-var restartButton = document.getElementById("restart-button");
-
 
 var timer;
 var score = 0;
@@ -65,6 +64,13 @@ var secondsElapsed = 0;
 var initialsInput = [];
 var quizScores = [];
 // variable declarations
+
+// attempt to remove prior users initials
+function clearInitialsInput() {
+    var clearInitials = document.querySelector("#initials");
+    clearInitials.textContent = "";
+}
+// attempt to remove prior users initials
 
 // timer functions
 function getFormattedMinutes() { 
@@ -88,27 +94,27 @@ function getFormattedSeconds() {
 
 function renderTime() {
     timerText.textContent = "Time Remaining: " + getFormattedMinutes() + " : " + getFormattedSeconds();
+    if (secondsElapsed >= totalSeconds) {
+        clearInterval(timer);
+        alert("Time is up!");
+        answeredQ5();
+    }
 }
      
 function stopTimer() {
     secondsElapsed = 0;
     renderTime(); 
-    // answeredQ5();
   }
 
 function startTimer() {
-  secondsElapsed = 0;
-  if (totalSeconds > 0) {    
+  
+  if (totalSeconds > 0) { 
+    secondsElapsed = 0;   
       timer = setInterval(function() {
         secondsElapsed++;
         renderTime();
       }, 1000);
-      if (secondsElapsed >= totalSeconds) {
-        stopTimer();
-        alert("Time is up!");
-        answeredQ5();
-      }
-}
+    }
   renderTime();
 }
 // timer functions 
@@ -120,6 +126,7 @@ startButton.addEventListener("click", startQuiz)
 // hide beginning card, show question 1 content and start timer
 function startQuiz () {
     startTimer();
+    clearInitialsInput();
     beginningCard.style.display = "none";
     quizCard.style.display = "block";
     score = 0;
@@ -260,49 +267,62 @@ function answeredQ4 () {
 }
 // show question 5 content after question 4 is answered
 
-// store initials and score in localStorage and stringify
-
-// store initials and score in localStorage and stringify
-
-// get stored initials and score from localStorage
-
-// get stored initials and score from localStorage
-
 // show card for recording intials and show score after question 5 is answered
 function answeredQ5 () {
     quizCard.style.display = "none";
     endingCard.style.display = "block";
     scoreTotal.textContent = "Your final score is " + score + " out of 100";
-    finalScore = score;
-    stopTimer();
+    score;
 }
 // show card for recording initals and show score after question 5 is answered
 
-// show recorded high scores
-recordButton.onclick = function () { 
+// show recorded scores
+recordButton.onclick = function() {
 
-    var initials = document.querySelector("#initials").value;
+    // push initials input and scores to localStorage
+    var initials = document.querySelector("#initials").value.toUpperCase();
     var pushInitials = initialsInput.push(initials);
-    var pushScore = quizScores.push(finalScore);
-    endingCard.style.display = "none";
-    scoreCard.style.display = "block"; 
+    var pushScore = quizScores.push(score);
+
     function storeInitials() {
         localStorage.setItem("Initials Input", JSON.stringify(pushInitials));
     }
     function storeScore() {
         localStorage.setItem("Quiz Scores", JSON.stringify(pushScore));
     }
+    // push initials input and scores to localStorage
+
     storeInitials();
-    storeScore();     
+    storeScore();
+    endingCard.style.display = "none";
+    scoreCard.style.display = "block";
+
+    // get stored initials and score from localStorage and create li for each item
+    function scoresLists() {
+        var li = document.createElement("li");
+
+        var highInitialsList = document.getElementById("high-initials-list");
+        var x;
+        for (x = 0; x < initialsInput.length; x++) {  
+            li.append(initialsInput[x]);
+            highInitialsList.append(li);
+        }
+        
+        var highScoresList = document.getElementById("high-scores-list");
+        var y;
+        for (y = 0; y < quizScores.length; y++) {
+            li.append(quizScores[y]);
+            highScoresList.append(li);
+        }
+    // get stored initials and score from localStorage and create li for each item
     }
-// show recorded high scores
+    scoresLists();
+}
 
 // show beginning card to restart quiz
-restartButton.onclick = function (){
-    for (i=0; i < initialsInput; i ++) {
-        
-    }
+restartButton.onclick = function () {
     scoreCard.style.display = "none";
     beginningCard.style.display = "block";
+    
 }
 // show beginning card to restart quiz
