@@ -66,10 +66,10 @@ var quizScores = [];
 // variable declarations
 
 // attempt to remove prior users initials
-function clearInitialsInput() {
-    var clearInitials = document.querySelector("#initials");
-    clearInitials.textContent = "";
-}
+// function clearInitialsInput() {
+//     var clearInitials = document.querySelector("#initials");
+//     clearInitials.textContent = "";
+// }
 // attempt to remove prior users initials
 
 // timer functions
@@ -126,7 +126,7 @@ startButton.addEventListener("click", startQuiz)
 // hide beginning card, show question 1 content and start timer
 function startQuiz () {
     startTimer();
-    clearInitialsInput();
+    //clearInitialsInput();
     beginningCard.style.display = "none";
     quizCard.style.display = "block";
     score = 0;
@@ -289,28 +289,28 @@ recordButton.onclick = function() {
 
     // get stored initials and score from localStorage and create li for each item
     function scoresLists() {
-        var li = document.createElement("li");
+        
 
         var highInitialsList = document.getElementById("high-scores-list");
-        var x;
-        for (x = 0; x < initialsInput.length; x++) {  
-            li.append(initialsInput[x]);
+        var initialsPop = initialsInput.pop();
+        var scorePop = quizScores.pop();
+        var pop = initialsPop + " | " + scorePop;
+
+        //for (var x = 0; x < initialsInput.length; x++) {  
+
+            var li = document.createElement("li");
+            li.innerHTML = pop;
+            //li.append(initialsInput);
+            //li.append(quizScores);
             highInitialsList.append(li);
-        }
-        
-        var highScoresList = document.getElementById("high-scores-list");
-        var y;
-        for (y = 0; y < quizScores.length; y++) {
-            li.append(quizScores[y]);
-            highScoresList.append(li);
-        }
-    // get stored initials and score from localStorage and create li for each item
+        //}
     }
     scoresLists();
 }
 
 // show beginning card to restart quiz
 restartButton.onclick = function () {
+    localStorage.removeItem(score);
     scoreCard.style.display = "none";
     beginningCard.style.display = "block";
     
