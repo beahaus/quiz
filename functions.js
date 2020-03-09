@@ -65,13 +65,6 @@ var initialsInput = [];
 var quizScores = [];
 // variable declarations
 
-// attempt to remove prior users initials
-// function clearInitialsInput() {
-//     var clearInitials = document.querySelector("#initials");
-//     clearInitials.textContent = "";
-// }
-// attempt to remove prior users initials
-
 // timer functions
 function getFormattedMinutes() { 
   var secondsLeft = totalSeconds - secondsElapsed;
@@ -290,27 +283,22 @@ recordButton.onclick = function() {
     // get stored initials and score from localStorage and create li for each item
     function scoresLists() {
         
-
+        
         var highInitialsList = document.getElementById("high-scores-list");
         var initialsPop = initialsInput.pop();
         var scorePop = quizScores.pop();
-        var pop = initialsPop + " | " + scorePop;
+        var pop = initialsPop + " | " + scorePop;  
 
-        //for (var x = 0; x < initialsInput.length; x++) {  
-
-            var li = document.createElement("li");
-            li.innerHTML = pop;
-            //li.append(initialsInput);
-            //li.append(quizScores);
-            highInitialsList.append(li);
-        //}
+        var li = document.createElement("li");
+        li.innerHTML = pop;   
+        highInitialsList.append(li);    
     }
     scoresLists();
 }
 
 // show beginning card to restart quiz
 restartButton.onclick = function () {
-    localStorage.removeItem(score);
+    
     scoreCard.style.display = "none";
     beginningCard.style.display = "block";
     
