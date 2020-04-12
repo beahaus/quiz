@@ -1,7 +1,5 @@
 # Quiz
 
-## Task
-
 We were tasked with creating a quiz that has:
 1. an allotted amount of time
 2. when a question is answered wrong, time is subtracted from the allotted amount of time.
@@ -9,8 +7,13 @@ We were tasked with creating a quiz that has:
 4. on the final page, an input for initials is display
 5. the initials and score is stored in local browswer storage.
 
-## Facilities used
+## Technology Used
 
 1. HTML
 2. custom CSS styling and the Twitter Bootstrap Framwork
-3. custom Javascript functions
+3. custom Javascript functions 
+4. use of local storage for scores of previous attempts
+
+## Link to Live Page
+
+https://beahaus.github.io/quiz/
